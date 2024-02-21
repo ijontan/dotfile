@@ -131,6 +131,10 @@ function op {
     (cd "$(find ${1:-*} -maxdepth 4 -type d -not -path "*.git*" -not -path "*.cache*" -not -path "*node_modules*" -not -path "*cpptools*" | fzf)" && tmux;)
 }
 
+function nv {
+    nvim $@
+}
+
 function g {
     git $@
 }
