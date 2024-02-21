@@ -131,6 +131,38 @@ function op {
     (cd "$(find ${1:-*} -maxdepth 4 -type d -not -path "*.git*" -not -path "*.cache*" -not -path "*node_modules*" -not -path "*cpptools*" | fzf)" && tmux;)
 }
 
+function g {
+    git $@
+}
+
+function ga {
+    git add ${@:--A}
+}
+
+function gc {
+    git commit $@
+}
+
+function gco {
+    git checkout ${@:--}
+}
+
+function gp {
+    git pull $@
+}
+
+function gP {
+    git push $@
+}
+
+function gr {
+    git remote $@
+}
+
+function gb {
+    git branch $@
+}
+
 function tm {
     tmux $@
 }
