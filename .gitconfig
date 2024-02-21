@@ -1,0 +1,7 @@
+[user]
+	name = ijontan
+	email = 85871000+ijontan@users.noreply.github.com
+[pull]
+	rebase = false
+[core]
+	editor = vim
