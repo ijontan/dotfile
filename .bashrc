@@ -139,6 +139,10 @@ function tma {
     tmux a -t ${1:0}
 }
 
+function tml {
+    tmux ls
+}
+
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval "$(oh-my-posh init bash --config $(brew --prefix oh-my-posh)/themes/robbyrussell.omp.json)"
 export FLYCTL_INSTALL="/home/ijon/.fly"
