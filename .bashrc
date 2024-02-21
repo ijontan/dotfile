@@ -124,11 +124,19 @@ export PATH=$BUN_INSTALL/bin:$PATH
 # alias sd="cd ~ && cd \$(find * -type d | fzf)"
 
 function sd {
-		cd "$(find ${1:-*} -maxdepth 4 -type d -not -path "*.git*" -not -path "*.cache*" -not -path "*node_modules*" -not -path "*cpptools*" | fzf)";
+    cd "$(find ${1:-*} -maxdepth 4 -type d -not -path "*.git*" -not -path "*.cache*" -not -path "*node_modules*" -not -path "*cpptools*" | fzf)";
 }
 
 function op {
     (cd "$(find ${1:-*} -maxdepth 4 -type d -not -path "*.git*" -not -path "*.cache*" -not -path "*node_modules*" -not -path "*cpptools*" | fzf)" && tmux;)
+}
+
+function tm {
+    tmux $@
+}
+
+function tma {
+    tmux a -t ${1:0}
 }
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
