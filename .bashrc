@@ -132,11 +132,11 @@ function op {
 }
 
 function nv {
-    nvim $@
+    nvim "$@"
 }
 
 function g {
-    git $@
+    git "$@"
 }
 
 function ga {
@@ -144,7 +144,7 @@ function ga {
 }
 
 function gc {
-    git commit $@
+    git commit "$@"
 }
 
 function gco {
@@ -152,23 +152,23 @@ function gco {
 }
 
 function gp {
-    git pull $@
+    git pull "$@"
 }
 
 function gP {
-    git push $@
+    git push "$@"
 }
 
 function gr {
-    git remote $@
+    git remote "$@"
 }
 
 function gb {
-    git branch $@
+    git branch "$@"
 }
 
 function tm {
-    tmux $@
+    tmux "$@"
 }
 
 function tma {
