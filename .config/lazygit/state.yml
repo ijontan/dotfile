@@ -1,8 +1,10 @@
 lastupdatecheck: 0
 recentrepos:
+- /home/ijon/src/cpp04
 - /home/ijon/src/webserv
 - /home/ijon/src/cpp03
 startuppopupversion: 5
-customcommandshistory: []
+customcommandshistory:
+- added watch mode in makefile and fixed some bugs
 hidecommandlog: false
 ignorewhitespaceindiffview: true

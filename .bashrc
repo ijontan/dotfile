@@ -172,7 +172,19 @@ function tm {
 }
 
 function tma {
-    tmux a -t ${1:0}
+    if [ -z "$@" ]
+    then
+	tmux a -t $(tmux ls | fzf | cut -d ':' -f1)
+    else
+	tmux a -t ${1}
+    fi
+}
+
+function initcpp {
+    mkdir src includes
+    sed "s_tempname_${1:-a.out}_g" ~/dotfiles/Makefile.template > "Makefile"
+    sed "s_RelativePath_$(pwd)_g" ~/dotfiles/.clangd.template > ".clangd"
+    echo "${1:-a.out}" >> .gitignore
 }
 
 function tml {
