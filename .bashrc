@@ -196,6 +196,8 @@ eval "$(oh-my-posh init bash --config $(brew --prefix oh-my-posh)/themes/robbyru
 export FLYCTL_INSTALL="/home/ijon/.fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+export EDITOR=/home/linuxbrew/.linuxbrew/bin/nvim
+export VISUAL=/home/linuxbrew/.linuxbrew/bin/nvim
 bind 'TAB:menu-complete'
 bind 'set show-all-if-ambiguous on'
 bind -f  ~/.inputrc
