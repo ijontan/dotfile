@@ -1,0 +1,48 @@
+{
+    "HPP Class": {
+        "prefix": "hppclass",
+        "body": [
+            "class ${1:${TM_FILENAME_BASE}} $2{",
+            "\tpublic:",
+            "\t\t$1(void);",
+            "\t\t~$1(void);",
+            "\t\t$1(const $1 &src);",
+            "\t\t$1\t&operator=(const $1 &rhs);",
+            "",
+            "\tprivate:",
+            "\t\t$3",
+            "};",
+            ""
+        ],
+        "description": "42 HPP Template"
+    },
+    "CPP Class Functions": {
+        "prefix": "cppclass",
+        "body": [
+            "#include \"${1:${TM_FILENAME_BASE}}.hpp\"",
+            "",
+            "/***********************************\n * Constructors\n***********************************/",
+            "",
+            "$1::$1(void)",
+            "{\n\n}",
+            "",
+            "$1::$1(const $1 &src)",
+            "{\n\n}",
+            "",
+            "$1\t&$1::operator=(const $1 &rhs)",
+            "{\n\n}",
+            "",
+            "/***********************************\n * Destructors\n***********************************/",
+            "",
+            "$1::~$1(void)",
+            "{\n\n}"
+        ],
+        "description": "42 CPP Template"
+    },
+    "pragma": {
+		"prefix": "pragma",
+		"body": [
+			"#pragma once"
+		]
+    }
+}

@@ -182,8 +182,8 @@ function tma {
 
 function initcpp {
     mkdir src includes
-    sed "s_tempname_${1:-a.out}_g" ~/dotfiles/Makefile.template > "Makefile"
-    sed "s_RelativePath_$(pwd)_g" ~/dotfiles/.clangd.template > ".clangd"
+    sed "s_tempname_${1:-a.out}_g" ~/dotfile/Makefile.template > "Makefile"
+    sed "s_RelativePath_$(pwd)_g" ~/dotfile/.clangd.template > ".clangd"
     echo "${1:-a.out}" >> .gitignore
 }
 
