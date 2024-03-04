@@ -191,6 +191,11 @@ function tml {
     tmux ls
 }
 
+function pskill {
+    pid=$(ps -e | sed "1d" | fzf | awk '{print $1}')
+    [ -z "$pid" ] || kill $pid
+}
+
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval "$(oh-my-posh init bash --config $(brew --prefix oh-my-posh)/themes/robbyrussell.omp.json)"
 export FLYCTL_INSTALL="/home/ijon/.fly"
@@ -198,6 +203,7 @@ export PATH="$FLYCTL_INSTALL/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export EDITOR=/home/linuxbrew/.linuxbrew/bin/nvim
 export VISUAL=/home/linuxbrew/.linuxbrew/bin/nvim
+export LC_COLLATE=C
 bind 'TAB:menu-complete'
 bind 'set show-all-if-ambiguous on'
 bind -f  ~/.inputrc
