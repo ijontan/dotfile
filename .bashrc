@@ -208,4 +208,3 @@ bind 'TAB:menu-complete'
 bind 'set show-all-if-ambiguous on'
 bind -f  ~/.inputrc
 
-set -o vi
