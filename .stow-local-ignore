@@ -2,3 +2,4 @@ scripts
 .git
 .*\.template
 scripts/
+*.sh

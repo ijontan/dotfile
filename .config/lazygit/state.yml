@@ -7,5 +7,6 @@ recentrepos:
 startuppopupversion: 5
 customcommandshistory:
 - added watch mode in makefile and fixed some bugs
+- qa
 hidecommandlog: false
 ignorewhitespaceindiffview: true
