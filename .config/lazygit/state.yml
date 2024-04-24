@@ -1,8 +1,8 @@
 lastupdatecheck: 0
 recentrepos:
+- /home/itan/src/cpp05
 - /home/itan/src/webserv
 - /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/oven-sh/homebrew-bun
-- /home/itan/src/cpp05
 - /home/itan/src/portal-app-frontend
 startuppopupversion: 5
 customcommandshistory:

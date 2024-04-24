@@ -44,5 +44,9 @@
         "body": [
             "#pragma once"
         ]
+    },
+    "endl": {
+        "prefix": "endl",
+        "body": "std::endl"
     }
 }

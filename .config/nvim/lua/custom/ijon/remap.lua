@@ -1,8 +1,8 @@
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
-vim.keymap.set("n", "<C-d>", "<C-d>zz");
-vim.keymap.set("n", "<C-u>", "<C-u>zz");
+-- vim.keymap.set("n", "<C-d>", "<C-d>zz");
+-- vim.keymap.set("n", "<C-u>", "<C-u>zz");
 
 vim.keymap.set("x", "<leader>p", [["_dP]], { desc = '[P]aste without yanking' })
 vim.keymap.set("n", "<leader>=", "<C-w>=")
@@ -24,7 +24,7 @@ vim.keymap.set("n", "<leader>n", function()
     if find_buffer_by_type "neo-tree" > 0 then
       require("neo-tree.command").execute { action = "close" }
     else
-      require("neo-tree.command").execute { reveal = true }
+      require("neo-tree.command").execute { reveal = true, position = "right" }
     end
   end
   toggle_neotree()

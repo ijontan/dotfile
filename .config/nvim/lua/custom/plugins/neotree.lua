@@ -13,7 +13,14 @@ return {
           visible = true,
         }
       },
+      default_component_configs = {
+        indent = {
+          indent_size = 1;
+          padding = 1
+        }
+      },
       window = {
+        position = "right",
         width = 25
       }
     }
