@@ -1,5 +1,6 @@
 scripts
 .git
 .*\.template
+.*\.json
 scripts/
-*.sh
+.*\.sh
