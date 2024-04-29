@@ -148,7 +148,7 @@ function pskill {
     [ -z "$pid" ] || kill $pid
 }
 
-# eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval "$(fzf --bash)"
 eval "$(oh-my-posh init bash --config $HOME/dotfile/mytheme.omp.json)"
 export FLYCTL_INSTALL="/home/ijon/.fly"

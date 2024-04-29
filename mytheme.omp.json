@@ -7,13 +7,13 @@
         {
           "foreground": "#98C379",
           "style": "plain",
-          "template": " {{ if .SSHSession }}{{ .HostName }} {{ end }}",
+          "template": "{{ if .SSHSession }} {{ .HostName }}{{ end }}",
           "type": "session"
         },
         {
           "foreground": "#98C379",
           "style": "plain",
-          "template": "\u279c",
+          "template": " \u279c",
           "type": "text"
         },
         {

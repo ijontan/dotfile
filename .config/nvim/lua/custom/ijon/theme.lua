@@ -38,3 +38,7 @@ vim.cmd.highlight({"Structure", "gui=bold", "guifg=#d48817"})
 vim.cmd.highlight({"Function", "gui=italic", "guifg=" .. green})
 
 vim.cmd.highlight({"Include", "gui=italic", "guifg=" .. orange})
+
+vim.cmd.highlight({"IlluminatedWordText", "guibg=#504a40"})
+vim.cmd.highlight({"IlluminatedWordRead", "guibg=#504a40"})
+vim.cmd.highlight({"IlluminatedWordWrite", "guibg=#504a40"})
