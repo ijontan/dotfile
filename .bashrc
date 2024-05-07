@@ -148,7 +148,7 @@ function pskill {
     [ -z "$pid" ] || kill $pid
 }
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 eval "$(fzf --bash)"
 eval "$(oh-my-posh init bash --config $HOME/dotfile/mytheme.omp.json)"
 export FLYCTL_INSTALL="/home/ijon/.fly"
@@ -180,4 +180,5 @@ bind -f  ~/.inputrc
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
-. "$HOME/.cargo/env"
+# . "$HOME/.cargo/env"
+# MANPATH=/usr/share/man
