@@ -1,13 +1,15 @@
 lastupdatecheck: 0
 recentrepos:
-- /home/itan/src/inception
 - /home/itan/src/cpp05
-- /home/itan/src/webserv
-- /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/oven-sh/homebrew-bun
-- /home/itan/src/portal-app-frontend
 startuppopupversion: 5
+lastversion: 0.41.0
 customcommandshistory:
 - added watch mode in makefile and fixed some bugs
 - qa
 hidecommandlog: false
 ignorewhitespaceindiffview: true
+diffcontextsize: 3
+localbranchsortorder: recency
+remotebranchsortorder: alphabetical
+gitlogorder: topo-order
+gitlogshowgraph: always

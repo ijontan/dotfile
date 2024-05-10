@@ -368,6 +368,7 @@ require('nvim-treesitter.configs').setup {
       goto_next_start = {
         [']]'] = '@function.outer',
         [']c'] = '@class.outer',
+        ['L'] = '@parameter.inner',
       },
       goto_next_end = {
         [']}'] = '@function.outer',
@@ -376,6 +377,7 @@ require('nvim-treesitter.configs').setup {
       goto_previous_start = {
         ['[['] = '@function.outer',
         ['[c'] = '@class.outer',
+        ['H'] = '@parameter.inner',
       },
       goto_previous_end = {
         ['[{'] = '@function.outer',
@@ -418,7 +420,7 @@ local on_attach = function(_, bufnr)
   end
 
   nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-  nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
+  nmap('<leader>a', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
   nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
   nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
@@ -541,6 +543,8 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
+vim.opt.splitright = true;
+vim.opt.splitbelow = true;
 
 require('custom.ijon')
 -- The line beneath this is called `modeline`. See `:help modeline`

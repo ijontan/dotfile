@@ -1,28 +1,45 @@
 return {
-  "nvim-neo-tree/neo-tree.nvim",
-  version = "*",
-  dependencies = {
-    "nvim-lua/plenary.nvim",
-    "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-    "MunifTanjim/nui.nvim",
-  },
-  config = function ()
-    require('neo-tree').setup {
-      filesystem = {
-        filtered_items = {
-          visible = true,
-        }
-      },
-      default_component_configs = {
-        indent = {
-          indent_size = 1;
-          padding = 1
-        }
-      },
-      window = {
-        position = "right",
-        width = 25
-      }
-    }
-  end,
+  -- "nvim-neo-tree/neo-tree.nvim",
+  -- version = "*",
+  -- dependencies = {
+  --   "nvim-lua/plenary.nvim",
+  --   "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+  --   "MunifTanjim/nui.nvim",
+  -- },
+  -- config = function ()
+  --   require('neo-tree').setup {
+  --     filesystem = {
+  --       filtered_items = {
+  --         visible = true,
+  --       }
+  --     },
+  --     default_component_configs = {
+  --       indent = {
+  --         indent_size = 1;
+  --         padding = 1
+  --       }
+  --     },
+  --     window = {
+  --       position = "right",
+  --       width = 25
+  --     }
+  --   }
+  -- vim.keymap.set("n", "<leader>n", function()
+  --   local find_buffer_by_type = function(type)
+  --     for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+  --       local ft = vim.api.nvim_buf_get_option(buf, "filetype")
+  --       if ft == type then return buf end
+  --     end
+  --     return -1
+  --   end
+  --   local toggle_neotree = function()
+  --     if find_buffer_by_type "neo-tree" > 0 then
+  --       require("neo-tree.command").execute { action = "close" }
+  --     else
+  --       require("neo-tree.command").execute { reveal = true, position = "right" }
+  --     end
+  --   end
+  --   toggle_neotree()
+  -- end, { desc = 'Toggle [N]eotree' })
+  -- end,
 }

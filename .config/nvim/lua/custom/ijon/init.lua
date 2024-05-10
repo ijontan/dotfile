@@ -13,9 +13,6 @@ vim.cmd.set({"nowrap"})
 vim.g.user42 = 'itan'
 vim.g.user42mail = 'itan@student.42.fr'
 
--- vim.api.nvim_create_autocmd({"BufWinEnter"},{
---   command = "Neotree show"
--- })
 
 require('custom.ijon.remap')
 require('custom.ijon.theme')

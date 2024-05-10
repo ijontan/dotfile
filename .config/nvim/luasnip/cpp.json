@@ -48,5 +48,35 @@
     "endl": {
         "prefix": "endl",
         "body": "std::endl"
+    },
+    "main void": {
+        "prefix": "vmain",
+        "body": [
+            "int main(void)",
+            "{",
+            "\t$1",
+            "\treturn 0"
+            "}"
+        ]
+    },
+    "main varg": {
+        "prefix": "vmain",
+        "body": [
+            "int main(int ac, char **av)",
+            "{",
+            "\t$1",
+            "\treturn 0"
+            "}"
+        ]
+    },
+    "main env": {
+        "prefix": "emain",
+        "body": [
+            "int main(int ac, char **av, char **env)",
+            "{",
+            "\t$1",
+            "\treturn 0"
+            "}"
+        ]
     }
 }
