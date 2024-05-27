@@ -1,8 +1,30 @@
 {
+    "exception":{
+        "prefix": "exception class",
+        "body": [
+            "class Error : public std::exception",
+	        "{",
+		    "\tError(std::string info, std::string extraInfo)",
+		    "\t{",
+			"\t\tstatic const std::string error(\"Error: \");",
+			"\t\tstd::stringstream ss;",
+			"\t\tss << error << info << extraInfo;",
+			"\t\tss >> _error;",
+		    "\t};",
+		    "\t~Error() throw(){};",
+		    "\tconst char *what() const throw()",
+		    "\t{",
+			"\t\treturn _error.c_str();",
+		    "\t}",
+	        "private:",
+		    "\tstd::string _error;",
+	        "};"
+        ]
+    },
     "HPP Class": {
         "prefix": "hppclass",
         "body": [
-            "class ${1:${TM_FILENAME_BASE}} $2{",
+            "class ${1:${TM_FILENAME_BASE}} $2\n{",
             "public:",
             "\t$1(void);",
             "\t~$1(void);",
@@ -50,32 +72,32 @@
         "body": "std::endl"
     },
     "main void": {
-        "prefix": "vmain",
+        "prefix": "main void",
         "body": [
             "int main(void)",
             "{",
             "\t$1",
-            "\treturn 0"
+            "\treturn 0;",
             "}"
         ]
     },
     "main varg": {
-        "prefix": "vmain",
+        "prefix": "main varg",
         "body": [
             "int main(int ac, char **av)",
             "{",
             "\t$1",
-            "\treturn 0"
+            "\treturn 0;",
             "}"
         ]
     },
     "main env": {
-        "prefix": "emain",
+        "prefix": "main env",
         "body": [
             "int main(int ac, char **av, char **env)",
             "{",
             "\t$1",
-            "\treturn 0"
+            "\treturn 0;",
             "}"
         ]
     }

@@ -8,6 +8,7 @@ local gray = "#616161"
 
 
 vim.cmd.highlight({"String", "guifg=" .. cyan})
+vim.cmd.highlight({"Normal", "guibg=#171717"})
 
 vim.cmd.highlight({"Identifier", "guifg=" .. light_yellow})
 
@@ -39,6 +40,6 @@ vim.cmd.highlight({"Function", "gui=italic", "guifg=" .. green})
 
 vim.cmd.highlight({"Include", "gui=italic", "guifg=" .. orange})
 
-vim.cmd.highlight({"IlluminatedWordText", "guibg=#504a40"})
-vim.cmd.highlight({"IlluminatedWordRead", "guibg=#504a40"})
-vim.cmd.highlight({"IlluminatedWordWrite", "guibg=#504a40"})
+vim.cmd.highlight({"IlluminatedWordText", "guibg=#403a30"})
+vim.cmd.highlight({"IlluminatedWordRead", "guibg=#403a30"})
+vim.cmd.highlight({"IlluminatedWordWrite", "guibg=#403a30"})

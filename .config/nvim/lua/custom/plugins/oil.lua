@@ -32,13 +32,15 @@ return {
 		})
 		vim.api.nvim_create_autocmd("VimEnter", {
 			callback = vim.schedule_wrap(function(data)
-				vim.print(vim.fn.isdirectory(data.file))
+				if vim.bo.filetype == 'nofile' then
+					return
+				end
 				if data.file == "" or vim.fn.isdirectory(data.file) ~= 0 then
-					vim.print(data.file)
 					require("oil").open()
 				end
 			end),
 		})
 		vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+		vim.keymap.set("n", "<C-->", "<C-w>v<CMD>Oil<CR>", { desc = "Open parent directory" })
 	end,
 }

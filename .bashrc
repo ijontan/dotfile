@@ -182,3 +182,5 @@ export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 # . "$HOME/.cargo/env"
 # MANPATH=/usr/share/man
+
+eval "$(thefuck --alias)"

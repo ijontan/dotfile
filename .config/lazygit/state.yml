@@ -1,11 +1,12 @@
 lastupdatecheck: 0
 recentrepos:
-- /home/itan/src/cpp05
+    - /home/itan/dotfile
+    - /home/itan/src/cpp05
 startuppopupversion: 5
-lastversion: 0.41.0
+lastversion: 0.42.0
 customcommandshistory:
-- added watch mode in makefile and fixed some bugs
-- qa
+    - added watch mode in makefile and fixed some bugs
+    - qa
 hidecommandlog: false
 ignorewhitespaceindiffview: true
 diffcontextsize: 3

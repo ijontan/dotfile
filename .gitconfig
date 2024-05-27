@@ -14,7 +14,7 @@
     diffFilter = delta --color-only
 
 [delta]
-    side-by-side = true
+    side-by-side = false
     navigate = true
 
 [merge]
