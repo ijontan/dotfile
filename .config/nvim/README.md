@@ -138,6 +138,7 @@ Each PR, especially those which increase the line count, should have a descripti
   * This includes your existing init.lua and the neovim files in `~/.local` which can be deleted with `rm -rf ~/.local/share/nvim/`
   * You may also want to look at the [migration guide for lazy.nvim](https://github.com/folke/lazy.nvim#-migration-guide)
 * What if I want to "uninstall" this configuration:
+
   * See [lazy.nvim uninstall](https://github.com/folke/lazy.nvim#-uninstalling) information
 * Are there any cool videos about this plugin?
   * Current iteration of kickstart (coming soon)
