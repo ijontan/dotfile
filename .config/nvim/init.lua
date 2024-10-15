@@ -372,19 +372,23 @@ require('lazy').setup({
       require('which-key').setup()
 
       -- Document existing key chains
-      require('which-key').register {
-        ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
-        ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
-        ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
-        ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
-        ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
-        ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
-        ['<leader>h'] = { name = 'Git [H]unk', _ = 'which_key_ignore' },
+      require('which-key').add {
+        { '<leader>c', group = '[C]ode' },
+        { '<leader>c_', hidden = true },
+        { '<leader>d', group = '[D]ocument' },
+        { '<leader>d_', hidden = true },
+        { '<leader>h', group = 'Git [H]unk' },
+        { '<leader>h_', hidden = true },
+        { '<leader>r', group = '[R]ename' },
+        { '<leader>r_', hidden = true },
+        { '<leader>s', group = '[S]earch' },
+        { '<leader>s_', hidden = true },
+        { '<leader>t', group = '[T]oggle' },
+        { '<leader>t_', hidden = true },
+        { '<leader>w', group = '[W]orkspace' },
+        { '<leader>w_', hidden = true },
+        { '<leader>h', desc = 'Git [H]unk', mode = 'v' },
       }
-      -- visual mode
-      require('which-key').register({
-        ['<leader>h'] = { 'Git [H]unk' },
-      }, { mode = 'v' })
     end,
   },
 
@@ -457,7 +461,7 @@ require('lazy').setup({
           },
         },
         defaults = {
-          file_ignore_patterns = { 'node_modules' },
+          file_ignore_patterns = { 'node_modules', '%.o' },
         },
       }
 
@@ -467,6 +471,39 @@ require('lazy').setup({
 
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
+      local action_state = require 'telescope.actions.state'
+      local actions = require 'telescope.actions'
+      local buffer_searcher
+      buffer_searcher = function()
+        builtin.buffers {
+          sort_mru = true,
+          ignore_current_buffer = true,
+          show_all_buffers = false,
+          attach_mappings = function(prompt_bufnr, map)
+            local refresh_buffer_searcher = function()
+              actions.close(prompt_bufnr)
+              vim.schedule(buffer_searcher)
+            end
+            local delete_buf = function()
+              local selection = action_state.get_selected_entry()
+              vim.api.nvim_buf_delete(selection.bufnr, { force = true })
+              refresh_buffer_searcher()
+            end
+            local delete_multiple_buf = function()
+              local picker = action_state.get_current_picker(prompt_bufnr)
+              local selection = picker:get_multi_selection()
+              for _, entry in ipairs(selection) do
+                vim.api.nvim_buf_delete(entry.bufnr, { force = true })
+              end
+              refresh_buffer_searcher()
+            end
+            map('n', 'dd', delete_buf)
+            map('n', '<C-d>', delete_multiple_buf)
+            map('i', '<C-d>', delete_multiple_buf)
+            return true
+          end,
+        }
+      end
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
       vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
@@ -476,7 +513,7 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
       vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
-      vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
+      vim.keymap.set('n', '<leader><leader>', buffer_searcher, { desc = '[ ] Find existing buffers' })
 
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()
@@ -817,6 +854,8 @@ require('lazy').setup({
       local cmp = require 'cmp'
       local luasnip = require 'luasnip'
       luasnip.config.setup {}
+      -- load snippets from path/of/your/nvim/config/my-cool-snippets
+      require('luasnip.loaders.from_vscode').lazy_load { paths = { './luasnip' } }
 
       cmp.setup {
         snippet = {

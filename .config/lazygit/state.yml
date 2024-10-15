@@ -1,5 +1,8 @@
 lastupdatecheck: 0
 recentrepos:
+    - /home/itan/src/wdt
+    - /home/itan/src/internal-halo-portal
+    - /home/itan/src/internal-halo-backend
     - /home/itan/src/cpp06
     - /home/itan/src/cpp08
     - /home/itan/hyprland-dot
@@ -9,13 +12,14 @@ recentrepos:
     - /home/itan/src/webserv
     - /home/itan/src/cpp05
 startuppopupversion: 5
-lastversion: 0.42.0
+lastversion: 0.44.1
 customcommandshistory:
     - added watch mode in makefile and fixed some bugs
     - qa
 hidecommandlog: false
 ignorewhitespaceindiffview: true
 diffcontextsize: 3
+renamesimilaritythreshold: 50
 localbranchsortorder: recency
 remotebranchsortorder: alphabetical
 gitlogorder: topo-order
