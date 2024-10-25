@@ -744,6 +744,12 @@ require('lazy').setup({
       vim.filetype.add {
         pattern = { ['.*/hypr/.*%.conf'] = 'hyprlang' },
       }
+      vim.filetype.add {
+        pattern = { ['.*/shader/.*%.frag'] = 'glsl' },
+      }
+      vim.filetype.add {
+        pattern = { ['.*/shader/.*%.vert'] = 'glsl' },
+      }
 
       -- Ensure the servers and tools above are installed
       --  To check the current status of installed tools and/or manually install
