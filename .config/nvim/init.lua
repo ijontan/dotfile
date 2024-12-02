@@ -247,6 +247,7 @@ require('lazy').setup({
   -- See `:help gitsigns` to understand what the configuration keys do
   { -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
+    dependencies = { 'petertriho/nvim-scrollbar' },
     opts = {
       signs = {
         add = { text = '┃' },
@@ -298,6 +299,7 @@ require('lazy').setup({
       },
       on_attach = function(bufnr)
         local gitsigns = require 'gitsigns'
+        require('scrollbar.handlers.gitsigns').setup()
         local function map(mode, l, r, opts)
           opts = opts or {}
           opts.buffer = bufnr
