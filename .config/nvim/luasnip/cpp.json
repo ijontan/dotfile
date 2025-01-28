@@ -1,104 +1,104 @@
 {
-    "exception":{
-        "prefix": "exception class",
-        "body": [
-            "class Error : public std::exception",
-	        "{",
-		    "\tError(std::string info, std::string extraInfo)",
-		    "\t{",
-			"\t\tstatic const std::string error(\"Error: \");",
-			"\t\tstd::stringstream ss;",
-			"\t\tss << error << info << extraInfo;",
-			"\t\tss >> _error;",
-		    "\t};",
-		    "\t~Error() throw(){};",
-		    "\tconst char *what() const throw()",
-		    "\t{",
-			"\t\treturn _error.c_str();",
-		    "\t}",
-	        "private:",
-		    "\tstd::string _error;",
-	        "};"
-        ]
-    },
-    "HPP Class": {
-        "prefix": "hppclass",
-        "body": [
-            "class ${1:${TM_FILENAME_BASE}} $2\n{",
-            "public:",
-            "\t$1(void);",
-            "\t~$1(void);",
-            "\t$1(const $1 &src);",
-            "\t$1\t&operator=(const $1 &rhs);",
-            "",
-            "private:",
-            "\t$3",
-            "};",
-            ""
-        ],
-        "description": "42 HPP Template"
-    },
-    "CPP Class Functions": {
-        "prefix": "cppclass",
-        "body": [
-            "#include \"${1:${TM_FILENAME_BASE}}.hpp\"",
-            "",
-            "/***********************************\n * Constructors\n***********************************/",
-            "",
-            "$1::$1(void)",
-            "{\n\n}",
-            "",
-            "$1::$1(const $1 &src)",
-            "{\n\n}",
-            "",
-            "$1\t&$1::operator=(const $1 &rhs)",
-            "{\n\n}",
-            "",
-            "/***********************************\n * Destructors\n***********************************/",
-            "",
-            "$1::~$1(void)",
-            "{\n\n}"
-        ],
-        "description": "42 CPP Template"
-    },
-    "pragma": {
-        "prefix": "pragma",
-        "body": [
-            "#pragma once"
-        ]
-    },
-    "endl": {
-        "prefix": "endl",
-        "body": "std::endl"
-    },
-    "main void": {
-        "prefix": "main void",
-        "body": [
-            "int main(void)",
-            "{",
-            "\t$1",
-            "\treturn 0;",
-            "}"
-        ]
-    },
-    "main varg": {
-        "prefix": "main varg",
-        "body": [
-            "int main(int ac, char **av)",
-            "{",
-            "\t$1",
-            "\treturn 0;",
-            "}"
-        ]
-    },
-    "main env": {
-        "prefix": "main env",
-        "body": [
-            "int main(int ac, char **av, char **env)",
-            "{",
-            "\t$1",
-            "\treturn 0;",
-            "}"
-        ]
-    }
+  "exception": {
+    "prefix": "exception class",
+    "body": [
+      "class Error : public std::exception",
+      "{",
+      "\tError(std::string info, std::string extraInfo)",
+      "\t{",
+      "\t\tstatic const std::string error(\"Error: \");",
+      "\t\tstd::stringstream ss;",
+      "\t\tss << error << info << extraInfo;",
+      "\t\tss >> _error;",
+      "\t};",
+      "\t~Error() throw(){};",
+      "\tconst char *what() const throw()",
+      "\t{",
+      "\t\treturn _error.c_str();",
+      "\t}",
+      "private:",
+      "\tstd::string _error;",
+      "};"
+    ]
+  },
+  "HPP Class": {
+    "prefix": "hppclass",
+    "body": [
+      "class ${1:${TM_FILENAME_BASE}} $2\n{",
+      "public:",
+      "\t$1(void);",
+      "\t~$1(void);",
+      "\t$1(const $1 &src);",
+      "\t$1\t&operator=(const $1 &rhs);",
+      "",
+      "private:",
+      "\t$3",
+      "};",
+      ""
+    ],
+    "description": "42 HPP Template"
+  },
+  "CPP Class Functions": {
+    "prefix": "cppclass",
+    "body": [
+      "#include \"${1:${TM_FILENAME_BASE}}.hpp\"",
+      "",
+      "/***********************************\n * Constructors\n***********************************/",
+      "",
+      "$1::$1(void)",
+      "{\n\n}",
+      "",
+      "$1::$1(const $1 &src)",
+      "{\n\n}",
+      "",
+      "$1\t&$1::operator=(const $1 &rhs)",
+      "{\n\n}",
+      "",
+      "/***********************************\n * Destructors\n***********************************/",
+      "",
+      "$1::~$1(void)",
+      "{\n\n}"
+    ],
+    "description": "42 CPP Template"
+  },
+  "pragma": {
+    "prefix": "pragma",
+    "body": [
+      "#pragma once"
+    ]
+  },
+  "endl": {
+    "prefix": "endl",
+    "body": "std::endl"
+  },
+  "main void": {
+    "prefix": "main void",
+    "body": [
+      "int main(void)",
+      "{",
+      "\t$1",
+      "\treturn 0;",
+      "}"
+    ]
+  },
+  "main varg": {
+    "prefix": "main varg",
+    "body": [
+      "int main(int ac, char **av)",
+      "{",
+      "\t$1",
+      "\treturn 0;",
+      "}"
+    ]
+  },
+  "main env": {
+    "prefix": "main env",
+    "body": [
+      "int main(int ac, char **av, char **env)",
+      "{",
+      "\t$1",
+      "\treturn 0;",
+      "}"
+    ]
+  }
 }

@@ -6,6 +6,10 @@ local red = '#ce6c26'
 local green = '#5bd182'
 local gray = '#616161'
 
+vim.cmd.set 'fillchars+=eob:▎'
+
+-- vim.cmd.highlight { 'EndOfBuffer', 'guifg=bg' }
+vim.cmd.highlight { 'SignColumn', 'guibg=Normal' }
 vim.cmd.highlight { 'String', 'guifg=' .. cyan }
 vim.cmd.highlight { 'Normal', 'guibg=#171717' }
 

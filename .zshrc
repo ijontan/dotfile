@@ -67,6 +67,10 @@ alias nv='nvim'
 alias open='thunar'
 alias tm='tmux'
 alias tma='tmux a -t $(tmux ls 2> /dev/null | fzf | cut -d ':' -f1)'
+alias ff='fastfetch'
+alias ldk='lazydocker'
+alias lg='lazygit'
+alias m='make'
 
 
 
