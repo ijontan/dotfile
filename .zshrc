@@ -71,6 +71,7 @@ alias ff='fastfetch'
 alias ldk='lazydocker'
 alias lg='lazygit'
 alias m='make'
+alias y='yazi'
 
 
 
@@ -90,6 +91,7 @@ export FZF_CTRL_R_OPTS="
 export FZF_ALT_C_OPTS="
   --walker-skip $FZF_SKIP
   --preview 'exa --tree --level=3 --icons --color=always {} | head -n 500'"
+export EDITOR=nvim
 
 function pskill {
   pid=$(ps -e | sed "1d" | fzf | awk '{print $1}')
@@ -100,3 +102,4 @@ function op {
 }
 # shell intergration
 eval "$(fzf --zsh)"
+eval "$(thefuck --alias)"
