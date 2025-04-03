@@ -6,7 +6,7 @@
 #    By: itan <itan@student.42kl.edu.my>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/18 20:55:16 by itan              #+#    #+#              #
-#    Updated: 2024/03/04 20:45:06 by itan             ###   ########.fr        #
+#    Updated: 2025/04/03 22:01:39 by itan             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ SRC_DIR	= src
 OBJ_DIR	= obj
 
 # this is for mirroring the out dir
-OBJ_DIRS= $(subst $(SRC_DIR), $(OBJ_DIR), $(shell find $(SRC_DIR) -type d))
+SRC_DIRS= $(shell find $(SRC_DIR) -type d)
+OBJ_DIRS= $(subst $(SRC_DIR), $(OBJ_DIR), $(SRC_DIRS))
 
 SRC		= $(shell find $(SRC_DIR) -name '*.cpp')
 OBJ		= $(subst $(SRC_DIR), $(OBJ_DIR), $(SRC:.cpp=.o))
@@ -81,7 +82,7 @@ $(DNAME):	$(SRC) $(INCFILES)
 watch:	
 		@command -v entr || printf "Need to install entr in watch mode"
 		@printf "\n $(INCFILES) \n\n"
-		@echo "$(SRC) $(INCFILES)" | sed "s/ /\n/g" | entr -r -s "make && ./$(NAME)"
+		@while sleep 0.1; do echo "$(SRC) $(INCFILES)" | sed "s/ /\n/g" | entr -dcrs "make -s && ./$(NAME)" && break; done;
 		
 d: 	debug
 

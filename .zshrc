@@ -1,9 +1,9 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# fi
 
 
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -16,7 +16,7 @@ fi
 source "${ZINIT_HOME}/zinit.zsh"
 
 # powerlevel10k
-zinit ice depth=1; zinit light romkatv/powerlevel10k
+# zinit ice depth=1; zinit light romkatv/powerlevel10k
 
 # syntax highlight
 zinit light zsh-users/zsh-syntax-highlighting
@@ -34,8 +34,8 @@ autoload -U compinit && compinit
 
 zinit cdreplay -q
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
@@ -101,5 +101,24 @@ function op {
   (cd "$(find ${1:-*} -maxdepth 4 -type d -not -path "*.git*" -not -path "*.cache*" -not -path "*node_modules*" -not -path "*cpptools*" | fzf --preview 'exa --tree --level=3 --icons --color=always {} | head -n 500')" && tmux;)
 }
 # shell intergration
+eval "$(starship init zsh)"
 eval "$(fzf --zsh)"
 eval "$(thefuck --alias)"
+
+# # transcient prompt
+# set-long-prompt() { PROMPT=$(starship prompt) }
+# precmd_functions=(set-long-prompt)
+#
+# set-short-prompt() {
+#   if [[ $PROMPT != '%# ' ]]; then
+#       PROMPT=$(starship module character)
+#     zle .reset-prompt
+#   fi
+# }
+#
+# zle-line-finish() { set-short-prompt }
+# zle -N zle-line-finish
+#
+# trap 'set-short-prompt; return 130' INT
+#
+sttt growexit --growexit-center '0.3,0.3' --growexit-center2 '0.7,0.7' -c 2 -d 0.5

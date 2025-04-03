@@ -2,5 +2,6 @@ scripts
 .git
 .*\.template
 .*\.json
+.*\.bak
 scripts/
 .*\.sh
