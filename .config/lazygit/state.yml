@@ -1,9 +1,9 @@
 lastupdatecheck: 0
 recentrepos:
+    - /home/itan/hyprland-dot
     - /home/itan/dotfile
     - /home/itan/work/briohr/4395
     - /home/itan/work/briohr/projects-briohr-staffing
-    - /home/itan/hyprland-dot
     - /home/itan/src/webserv
 startuppopupversion: 5
 lastversion: 0.48.0
