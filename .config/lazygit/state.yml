@@ -1,12 +1,11 @@
 lastupdatecheck: 0
 recentrepos:
+    - /home/itan/src/wdt
     - /home/itan/hyprland-dot
     - /home/itan/dotfile
-    - /home/itan/work/briohr/4395
-    - /home/itan/work/briohr/projects-briohr-staffing
     - /home/itan/src/webserv
 startuppopupversion: 5
-lastversion: 0.48.0
+lastversion: 0.50.0
 customcommandshistory:
     - added watch mode in makefile and fixed some bugs
     - qa
