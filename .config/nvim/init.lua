@@ -702,7 +702,11 @@ require('lazy').setup({
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
-        -- clangd = {},
+        clangd = {
+          init_options = {
+            compilationDatabasePath = './build',
+          },
+        },
         -- gopls = {},
         -- pyright = {},
         -- rust_analyzer = {},
@@ -730,6 +734,7 @@ require('lazy').setup({
           },
         },
       }
+      vim.lsp.enable 'qmlls'
       -- Hyprlang LSP
       vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter' }, {
         pattern = { '*.hl', 'hypr*.conf' },

@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-# fi
-
 
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
@@ -14,9 +7,6 @@ if [ ! -d "$ZINIT_HOME" ]; then
 fi
 
 source "${ZINIT_HOME}/zinit.zsh"
-
-# powerlevel10k
-# zinit ice depth=1; zinit light romkatv/powerlevel10k
 
 # syntax highlight
 zinit light zsh-users/zsh-syntax-highlighting
@@ -33,10 +23,7 @@ zinit snippet OMZP::command-not-found
 autoload -U compinit && compinit
 
 zinit cdreplay -q
-
-# # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
+ 
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
@@ -59,7 +46,7 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza --long --tree --level 3 $realpa
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-alias ls='eza --icons'
+alias ls='exa --icons'
 alias lll='exa --icons -alF'
 alias ll='exa --icons -AlF'
 alias l='exa --icons -lF'
@@ -72,6 +59,13 @@ alias ldk='lazydocker'
 alias lg='lazygit'
 alias m='make'
 alias y='yazi'
+function pskill {
+  pid=$(ps -e | sed "1d" | fzf | awk '{print $1}')
+  [ -z "$pid" ] || kill $pid
+}
+function op {
+  (cd "$(find ${1:-*} -maxdepth 4 -type d -not -path "*.git*" -not -path "*.cache*" -not -path "*node_modules*" -not -path "*cpptools*" | fzf --preview 'exa --tree --level=3 --icons --color=always {} | head -n 500')" && tmux;)
+}
 
 function initcpp {
     mkdir src includes
@@ -80,9 +74,8 @@ function initcpp {
     echo "${1:-a.out}" >> .gitignore
 }
 
-
 # env
-export FZF_SKIP=".git,node_modules,target,.cache,.icons,.themes,.steam,.local,.gradle,.npm,game,.wine"
+export FZF_SKIP=".git,node_modules,target,.cache,.icons,.themes,.steam,.local,.gradle,.npm,game,Games,.cargo,.zen,.vscode,.var,.mozilla,go,Code,.wine"
 export FZF_DEFAULT_OPTS="--reverse"
 export FZF_CTRL_T_OPTS="
   --walker-skip $FZF_SKIP
@@ -99,32 +92,8 @@ export FZF_ALT_C_OPTS="
   --preview 'exa --tree --level=3 --icons --color=always {} | head -n 500'"
 export EDITOR=nvim
 
-function pskill {
-  pid=$(ps -e | sed "1d" | fzf | awk '{print $1}')
-  [ -z "$pid" ] || kill $pid
-}
-function op {
-  (cd "$(find ${1:-*} -maxdepth 4 -type d -not -path "*.git*" -not -path "*.cache*" -not -path "*node_modules*" -not -path "*cpptools*" | fzf --preview 'exa --tree --level=3 --icons --color=always {} | head -n 500')" && tmux;)
-}
 # shell intergration
 eval "$(starship init zsh)"
 eval "$(fzf --zsh)"
-eval "$(thefuck --alias)"
+# eval "$(thefuck --alias)"
 
-# # transcient prompt
-# set-long-prompt() { PROMPT=$(starship prompt) }
-# precmd_functions=(set-long-prompt)
-#
-# set-short-prompt() {
-#   if [[ $PROMPT != '%# ' ]]; then
-#       PROMPT=$(starship module character)
-#     zle .reset-prompt
-#   fi
-# }
-#
-# zle-line-finish() { set-short-prompt }
-# zle -N zle-line-finish
-#
-# trap 'set-short-prompt; return 130' INT
-#
-sttt growexit --growexit-center '0.3,0.3' --growexit-center2 '0.7,0.7' -c 2 -d 0.5
