@@ -91,6 +91,7 @@ export FZF_ALT_C_OPTS="
   --walker-skip $FZF_SKIP
   --preview 'exa --tree --level=3 --icons --color=always {} | head -n 500'"
 export EDITOR=nvim
+export GLFW_LIBRARY_NAME=libglfw_wayland.so
 
 # shell intergration
 eval "$(starship init zsh)"
