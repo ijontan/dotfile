@@ -23,7 +23,7 @@ vim.opt.undofile = true
 
 vim.opt.clipboard:append('unnamedplus')
 
-vim.opt.guicursor = ""
+-- vim.opt.guicursor = ""
 vim.opt.scrolloff = 8
 
 vim.api.nvim_create_autocmd("TextYankPost", {
