@@ -3,6 +3,7 @@ return {
   dependencies = { 'nvim-tree/nvim-web-devicons' },
   config = function(opts)
     require('oil').setup {
+      skip_confirm_for_simple_edits = true,
       win_options = {
         signcolumn = 'yes:2',
       },
@@ -44,6 +45,6 @@ return {
       end),
     })
     vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
-    vim.keymap.set('n', '<C-->', '<C-w>v<CMD>Oil<CR>', { desc = 'Open parent directory' })
+    vim.keymap.set('n', '<C-->', '<CMD>botright vs<CR><CMD>Oil<CR>', { desc = 'Open parent directory' })
   end,
 }

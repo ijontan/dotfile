@@ -1,6 +1,17 @@
 return {
-  'simrat39/symbols-outline.nvim',
+  'hedyhli/outline.nvim',
+  lazy = true,
+  cmd = { 'Outline', 'OutlineOpen' },
+  keys = { -- Example mapping to toggle outline
+    { '<leader>o', '<cmd>Outline<CR>', desc = 'Toggle outline' },
+  },
   opts = {
+    outline_window = {
+      position = 'right',
+      split_command = 'vs',
+      width = 20,
+    },
+    -- Your setup opts here
     keymaps = { -- These keymaps can be a string or a table for multiple keys
       close = { '<Esc>', 'q' },
       goto_location = '<Cr>',

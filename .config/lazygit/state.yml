@@ -1,15 +1,17 @@
 lastupdatecheck: 0
 recentrepos:
+    - /home/itan/dotfile
+    - /home/itan/hyprland-dot
+    - /home/itan/src/scop
     - /home/itan/src/engine
     - /home/itan/src/wdt
     - /home/itan/src/slicer_game
-    - /home/itan/hyprland-dot
-    - /home/itan/dotfile
     - /home/itan/src/webserv
 startuppopupversion: 5
 didshowhunkstaginghint: true
-lastversion: 0.56.0
+lastversion: 0.62.1
 customcommandshistory:
     - added watch mode in makefile and fixed some bugs
     - qa
 hidecommandlog: false
+githubPullRequests: {}

@@ -11,5 +11,8 @@ vim.cmd.set { 'nowrap' }
 vim.g.user42 = 'itan'
 vim.g.user42mail = 'itan@student.42.fr'
 
+vim.o.pumheight = 21
+vim.o.pumwidth = 100
+
 require 'custom.ijon.remap'
 require 'custom.ijon.theme'

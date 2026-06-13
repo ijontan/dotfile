@@ -63,8 +63,17 @@ function pskill {
   pid=$(ps -e | sed "1d" | fzf | awk '{print $1}')
   [ -z "$pid" ] || kill $pid
 }
+
+# function op {
+#   (cd "$(find ${1:-*} -maxdepth 4 -type d -not -path "*.git*" -not -path "*.cache*" -not -path "*node_modules*" -not -path "*cpptools*" | fzf --preview 'exa --tree --level=3 --icons --color=always {} | head -n 500')" && tmux;)
+# }
+
+function search_file {
+  find ${1:-*} -maxdepth 4 -type d -not -path "*.git*" -not -path "*.cache*" -not -path "*node_modules*" -not -path "*cpptools*" | fzf --preview 'exa --tree --level=3 --icons --color=always {} | head -n 500'
+}
+
 function op {
-  (cd "$(find ${1:-*} -maxdepth 4 -type d -not -path "*.git*" -not -path "*.cache*" -not -path "*node_modules*" -not -path "*cpptools*" | fzf --preview 'exa --tree --level=3 --icons --color=always {} | head -n 500')" && tmux;)
+  ~/.config/hypr/UserScripts/openWorkingDir.sh "$(search_file $1)"
 }
 
 function initcpp {
@@ -93,8 +102,10 @@ export FZF_ALT_C_OPTS="
 export EDITOR=nvim
 export GLFW_LIBRARY_NAME=libglfw_wayland.so
 
+export PATH="$PATH:/home/itan/.local/bin"
+
 # shell intergration
 eval "$(starship init zsh)"
 eval "$(fzf --zsh)"
 # eval "$(thefuck --alias)"
-
+tabs -4
