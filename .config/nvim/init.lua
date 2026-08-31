@@ -6,3 +6,4 @@ require('pack')
 require('lsp') -- has to be after package load
 require('commands')
 require('colorscheme')
+require('build')
